@@ -1,7 +1,13 @@
 // app.js
 
+const express = require("express");
 const mongoose = require("mongoose");
-const { Schema } = mongoose;
+const bodyParser = require("body-parser");
+
+const app = express();
+const port = 3000;
+
+app.use(bodyParser.json());
 
 // Connect to MongoDB
 mongoose.connect("mongodb://localhost:27017/stewart-detailing", {
@@ -10,7 +16,7 @@ mongoose.connect("mongodb://localhost:27017/stewart-detailing", {
 });
 
 // Define a schema for your MongoDB collection
-const UserSchema = new Schema({
+const CustomerSchema = new mongoose.Schema({
   name: String,
   age: Number,
   car_make: String,
@@ -19,21 +25,64 @@ const UserSchema = new Schema({
 });
 
 // Create a Mongoose model based on the schema
-const UserModel = mongoose.model("User", UserSchema);
+const CustomerModel = mongoose.model("Customer", CustomerSchema);
 
-// Example usage: Insert a document into the collection
-const UserDocument = new UserModel({
-  name: "John Doe",
-  age: 25,
-  car_make: "Mazda",
-  car_model: "Rx-7",
-  car_year: 1995,
+// API endpoint for creating a new customer
+app.post("/api/new-customer", async (req, res) => {
+  try {
+    const newCustomer = new CustomerModel(req.body);
+    const savedCustomer = await newCustomer.save();
+    res.json(savedCustomer);
+  } catch (error) {
+    console.error("Error creating customer:", error);
+    res.status(500).json({ error: "Internal Server Error" });
+  }
 });
 
-UserDocument.save()
-  .then((doc) => {
-    console.log("Document saved:", doc);
-  })
-  .catch((error) => {
-    console.error("Error saving document:", error);
-  });
+// API endpoint for fetching all customers
+app.get("/api/customers", async (req, res) => {
+  try {
+    const allCustomers = await CustomerModel.find();
+    res.json(allCustomers);
+  } catch (error) {
+    console.error("Error fetching customers:", error);
+    res.status(500).json({ error: "Internal Server Error" });
+  }
+});
+
+app.put("/api/update", async (req, res) => {
+  try {
+    const { name } = req.query;
+    const updatedData = req.body;
+
+    // Fetch all customers
+    const allCustomers = await CustomerModel.find();
+
+    // Filter customers by name
+    const filteredCustomers = allCustomers.filter(
+      (customer) => customer.name === name
+    );
+
+    if (filteredCustomers.length === 0) {
+      return res.status(404).json({ error: "Customer not found" });
+    }
+
+    const updatedCustomer = filteredCustomers[0];
+
+    Object.assign(customer, updatedData);
+
+    await customer.save();
+
+    res.json(customer);
+  } catch (error) {
+    console.error("Error updating customer:", error);
+    res.status(500).json({ error: "Internal Server Error" });
+  }
+});
+
+// Additional API endpoints for updating and deleting customers can be added here
+
+const PORT = process.env.PORT || 3000;
+app.listen(PORT, () => {
+  console.log(`Server is running on ${PORT}`);
+});
