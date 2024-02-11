@@ -28,7 +28,7 @@ const CustomerSchema = new mongoose.Schema({
 const CustomerModel = mongoose.model("Customer", CustomerSchema);
 
 // API endpoint for creating a new customer
-app.post("/api/new-customer", async (req, res) => {
+app.post("/api/create-customer", async (req, res) => {
   try {
     const newCustomer = new CustomerModel(req.body);
     const savedCustomer = await newCustomer.save();
@@ -40,7 +40,7 @@ app.post("/api/new-customer", async (req, res) => {
 });
 
 // API endpoint for fetching all customers
-app.get("/api/customers", async (req, res) => {
+app.get("/api/get-all-customers", async (req, res) => {
   try {
     const allCustomers = await CustomerModel.find();
     res.json(allCustomers);
@@ -50,32 +50,75 @@ app.get("/api/customers", async (req, res) => {
   }
 });
 
-app.put("/api/update", async (req, res) => {
+// API endpoint for One customer
+app.get("/api/get-customer", async (req, res) => {
   try {
-    const { name } = req.query;
+    const { customerId } = req.body;
+
+    if (!customerId) {
+      return res
+        .status(400)
+        .json({ error: "customerId parameter is required" });
+    }
+
+    const getCustomer = await CustomerModel.findById(customerId);
+
+    if (!getCustomer) {
+      return res.status(404).json({ error: "Customer not found" });
+    }
+    res.json(getCustomer);
+  } catch (error) {
+    console.error("Error updating customer:", error);
+    res.status(500).json({ error: "Internal Server Error" });
+  }
+});
+
+app.put("/api/update-customer", async (req, res) => {
+  try {
+    const { customerId } = req.body;
     const updatedData = req.body;
 
-    // Fetch all customers
-    const allCustomers = await CustomerModel.find();
+    if (!customerId) {
+      return res
+        .status(400)
+        .json({ error: "customerId parameter is required" });
+    }
+    // Filter customers by ID
+    const updatedCustomer = await CustomerModel.findById(customerId);
 
-    // Filter customers by name
-    const filteredCustomers = allCustomers.filter(
-      (customer) => customer.name === name
-    );
-
-    if (filteredCustomers.length === 0) {
+    if (!updatedCustomer) {
       return res.status(404).json({ error: "Customer not found" });
     }
 
-    const updatedCustomer = filteredCustomers[0];
+    Object.assign(updatedCustomer, updatedData);
 
-    Object.assign(customer, updatedData);
+    await updatedCustomer.save();
 
-    await customer.save();
-
-    res.json(customer);
+    res.json(updatedCustomer);
   } catch (error) {
     console.error("Error updating customer:", error);
+    res.status(500).json({ error: "Internal Server Error" });
+  }
+});
+
+app.delete("/api/delete-customer", async (req, res) => {
+  try {
+    const { customerId } = req.body;
+
+    if (!customerId) {
+      return res
+        .status(400)
+        .json({ error: "customerId parameter is required" });
+    }
+
+    const deleteCustomer = await CustomerModel.findByIdAndDelete(customerId);
+
+    if (!deleteCustomer) {
+      return res.status(404).json({ error: "Customer not found" });
+    }
+    res.json({ message: "Customer deleted successfully" });
+  } catch (error) {
+    console.error("Error deleting customer:", error);
     res.status(500).json({ error: "Internal Server Error" });
   }
 });
