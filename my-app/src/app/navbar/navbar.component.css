@@ -6,3 +6,8 @@
   .spaced-link:hover {
     color: #9F0B0B; /* Change the color when hovering over the links */
   }
+
+  .logo-img{
+    height: 20vh;
+    width: 20vh;
+  }

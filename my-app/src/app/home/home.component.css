@@ -1,0 +1,9 @@
+.img-fluid{
+    object-fit: cover;
+    width: 100%;
+}
+
+hero-img1{
+    margin: 0;
+    padding: 0;
+}
