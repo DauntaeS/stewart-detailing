@@ -11,3 +11,14 @@
     height: 20vh;
     width: 20vh;
   }
+
+  #navbar-container{
+    margin-top: -1vh;
+    margin-bottom: -1vh;
+    padding-left: 1vw;
+    padding-right: 1vw;
+  }
+
+.square-btn1, .square-btn2{
+  border-radius: 0%;
+}
