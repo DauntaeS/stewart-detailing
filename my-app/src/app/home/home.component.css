@@ -16,15 +16,57 @@
     background: rgba(0, 0, 0, 0.35);
     color: white;
     display: flex;
-    align-items: center;
+    align-items: flex-start;
     justify-content: center;
     flex-direction: column;
 }
 
-.hero-img-h1,  .hero-img-text{
+.hero-img-span1, .hero-btns{
     color: white;
+    margin-left: 210px;
+    font-size: 3.5em;
+}
+
+.hero-img-span2{
+    font-size: 20px;
+    color: white;
+    margin-left: 210px;
 }
 
 .square-btn1, .square-btn2{
     border-radius: 0%;
-  }
+    margin-right: 30px;
+}
+
+
+#welcome {
+    padding: 30px 0px 0px;
+}
+
+.layout{
+    padding: 0px 5px;
+}
+
+.company-name-section2{
+    font-size: 40px;
+}
+
+h4{
+    color: #9F0B0B;
+}
+
+.section2-p{
+    margin: 0px 0px 20px;
+}
+
+.section2-span1, .section2-span2{
+    font-size: 18px;
+}
+
+.grid{
+    padding: 50px 40px 100px;
+}
+
+/* .grid3{
+    padding: 10px;
+} */
