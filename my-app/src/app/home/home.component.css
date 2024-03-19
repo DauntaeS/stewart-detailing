@@ -64,9 +64,38 @@ h4{
 }
 
 .grid{
-    padding: 50px 40px 100px;
+    padding: 0px 40px 100px;
 }
 
-/* .grid3{
-    padding: 10px;
-} */
+.grid2{
+    display: flex;
+    padding: 80px;
+}
+
+.container-photos{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container-photos img{
+    border: 2px solid #9F0B0B;
+    padding: 8px 8px 8px 8px;
+}
+
+.image-container{
+    margin-right: 60px;
+    text-align: center;
+}
+
+.image-container h3 {
+    margin-top: 50px;
+}
+
+.image-container:last-child {
+    margin-right: 0;
+}
+
+.image-text{
+    margin-top: 10px;
+}
