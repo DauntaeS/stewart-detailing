@@ -64,7 +64,7 @@ h4{
 }
 
 .grid{
-    padding: 0px 40px 100px;
+    padding: 0px 40px 25px;
 }
 
 .grid2{
@@ -83,13 +83,51 @@ h4{
     padding: 8px 8px 8px 8px;
 }
 
-.image-container{
+.img-container1, .img-container2, .img-container3{
     margin-right: 60px;
     text-align: center;
 }
 
-.image-container h3 {
+.img-container h3 {
     margin-top: 50px;
+}
+
+.text-block {
+    position: absolute;
+    top: 6.5rem;
+    right: 2.5rem;
+    left: 2.5rem;
+    padding-bottom: 10px;
+    background-color: rgba(0, 0, 0, 0.8);
+    color: white;
+    padding-left: 20px;
+    padding-right: 20px;
+    display: none;
+    transition: all 0.3s ease;
+    z-index: 2;
+    text-align: center;
+}
+
+.img-container1,
+.img-container2,
+.img-container3 {
+    position: relative;
+}
+
+.img-container1:hover .text-block,
+.img-container2:hover .text-block,
+.img-container3:hover .text-block{
+    display: block;
+}
+
+.text-block h3,
+.text-block p {
+    margin: 0;
+}
+
+.text-block h3 {
+    color: white;
+    padding: 25px 25px;
 }
 
 .image-container:last-child {
@@ -98,4 +136,9 @@ h4{
 
 .image-text{
     margin-top: 10px;
+}
+
+.section3{
+    padding: 20px 20px;
+    text-align: center;
 }
