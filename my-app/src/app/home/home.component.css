@@ -19,6 +19,11 @@
     align-items: flex-start;
     justify-content: center;
     flex-direction: column;
+    text-align: center;
+}
+
+.hero-img-span1 {
+    text-align: left;
 }
 
 .hero-img-span1, .hero-btns{
@@ -65,6 +70,7 @@ h4{
 
 .grid{
     padding: 0px 40px 25px;
+    background: linear-gradient(-180deg, rgba(255,255,255,0.50) 0%, rgba(0,0,0,0.50) 100%);
 }
 
 .grid2{
@@ -79,8 +85,8 @@ h4{
 }
 
 .container-photos img{
-    border: 2px solid #9F0B0B;
-    padding: 8px 8px 8px 8px;
+    border: 2px solid #282727;
+    padding: 0px 0px;
 }
 
 .img-container1, .img-container2, .img-container3{
@@ -95,8 +101,8 @@ h4{
 .text-block {
     position: absolute;
     top: 6.5rem;
-    right: 2.5rem;
-    left: 2.5rem;
+    right: -10px;
+    left: 80px;
     padding-bottom: 10px;
     background-color: rgba(0, 0, 0, 0.8);
     color: white;
@@ -106,6 +112,8 @@ h4{
     transition: all 0.3s ease;
     z-index: 2;
     text-align: center;
+    border-right: 5px solid #9F0B0B;
+    border-bottom: 5px solid #9F0B0B;
 }
 
 .img-container1,
@@ -128,6 +136,11 @@ h4{
 .text-block h3 {
     color: white;
     padding: 25px 25px;
+    text-align: center;
+}
+
+.text-block-p {
+    text-align: left;
 }
 
 .image-container:last-child {
