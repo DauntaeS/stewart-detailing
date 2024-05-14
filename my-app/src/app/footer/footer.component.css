@@ -1,5 +1,5 @@
 .footer {
-    background-color: #333;
+    background-color: #030202;
     color: white;
     padding: 20px 0;
   }
@@ -40,7 +40,7 @@
   }
 
   .footer-section ul li a:hover {
-    color: #f1c40f;
+    color: #9F0B0B;
   }
 
   .footer-bottom {

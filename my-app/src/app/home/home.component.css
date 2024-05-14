@@ -152,7 +152,16 @@ h4{
 }
 
 .section3{
-    padding: 20px 20px;
+    padding: 10px 0px 0px;
     text-align: center;
     background: grey;
+}
+
+.section3-div-inside {
+    text-align: center;
+}
+
+.section3-div-inside img {
+    width: 100%;
+    height: auto;
 }
