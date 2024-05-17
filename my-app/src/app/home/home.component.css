@@ -43,7 +43,7 @@
     margin-right: 30px;
 }
 
-
+/* Section 2 */
 #welcome {
     padding: 30px 0px 0px;
 }
@@ -150,6 +150,7 @@ h4{
 .image-text{
     margin-top: 10px;
 }
+/* Section 3 */
 
 .section3{
     padding: 10px 0px 0px;
@@ -157,11 +158,24 @@ h4{
     background: grey;
 }
 
-.section3-div-inside {
-    text-align: center;
+.section3-container {
+    position: relative;
+    display: inline-block;
 }
 
-.section3-div-inside img {
+.section3-container img {
+    display: block;
     width: 100%;
     height: auto;
+    opacity: 75%;
 }
+
+.top-right {
+    position: absolute;
+    top: 150px;
+    right: 10px;
+    color: white;
+    background-color: rgba(0,0,0,0.5);
+    padding: 5px;
+    font-size: 16px;
+  }
