@@ -24,6 +24,7 @@
 
 .hero-img-span1 {
     text-align: left;
+    font-family: "Roboto", sans-serif;
 }
 
 .hero-img-span1, .hero-btns{
@@ -33,6 +34,7 @@
 }
 
 .hero-img-span2{
+    font-family: "Roboto", sans-serif;
     font-size: 20px;
     color: white;
     margin-left: 210px;
@@ -58,6 +60,7 @@
 
 h4{
     color: #9F0B0B;
+    font-family: "Roboto", sans-serif;
 }
 
 .section2-p{
@@ -75,27 +78,30 @@ h4{
 
 .grid2{
     display: flex;
-    padding: 80px;
+    padding: 30px;
 }
-
-.container-photos{
+.container-photos {
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
-.container-photos img{
+.container-photos img {
     border: 2px solid #282727;
-    padding: 0px 0px;
+    padding: 0;
+    max-width: 100%; /* Ensure images don't exceed container width */
+    height: auto; /* Maintain aspect ratio */
 }
 
-.img-container1, .img-container2, .img-container3{
-    margin-right: 60px;
+.img-container {
+    flex: 1 1 300px; /* Flex-grow, flex-shrink, flex-basis */
+    margin: 10px; /* Margin around each container */
     text-align: center;
+    max-width: 100%; /* Ensure containers don't exceed 100% width */
 }
 
 .img-container h3 {
-    margin-top: 50px;
+    margin-top: 10px;
 }
 
 .text-block {
@@ -120,6 +126,11 @@ h4{
 .img-container2,
 .img-container3 {
     position: relative;
+    padding-right: 20px;
+}
+
+.img-container3{
+    padding-right: 0;
 }
 
 .img-container1:hover .text-block,
@@ -141,10 +152,6 @@ h4{
 
 .text-block-p {
     text-align: left;
-}
-
-.image-container:last-child {
-    margin-right: 0;
 }
 
 .image-text{
@@ -179,3 +186,24 @@ h4{
     padding: 5px;
     font-size: 16px;
   }
+
+
+
+  /* Section 2 Media Queries */
+
+  @media (max-width: 768px) {
+    .container-photos {
+        justify-content: space-around; /* Adjust alignment on smaller screens */
+    }
+
+    .img-container {
+        flex: 1 1 45%; /* Adjust the basis to take up more width on smaller screens */
+    }
+}
+
+@media (max-width: 480px) {
+    .img-container {
+        flex: 1 1 100%; /* Stack images vertically on very small screens */
+        margin: 5px; /* Reduce margin for smaller screens */
+    }
+}
