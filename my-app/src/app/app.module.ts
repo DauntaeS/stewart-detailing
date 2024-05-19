@@ -9,6 +9,7 @@ import { customerComponent } from './customer.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { HomeComponent } from './home/home.component';
 import { FooterComponent } from './footer/footer.component';
+import { GalleryComponent } from './gallery/gallery.component';
 
 @NgModule({
   declarations: [
@@ -17,6 +18,7 @@ import { FooterComponent } from './footer/footer.component';
     NavbarComponent,
     HomeComponent,
     FooterComponent,
+    GalleryComponent,
   ],
   imports: [
     BrowserModule,
