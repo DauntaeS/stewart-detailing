@@ -10,6 +10,7 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { HomeComponent } from './home/home.component';
 import { FooterComponent } from './footer/footer.component';
 import { GalleryComponent } from './gallery/gallery.component';
+import { EstimateComponent } from './estimate/estimate.component';
 
 @NgModule({
   declarations: [
@@ -24,6 +25,7 @@ import { GalleryComponent } from './gallery/gallery.component';
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
+    EstimateComponent,
   ],
   providers: [],
   bootstrap: [AppComponent]

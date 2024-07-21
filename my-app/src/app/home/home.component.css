@@ -59,7 +59,7 @@
 }
 
 h4{
-    color: #9F0B0B;
+    color: blue;
     font-family: "Roboto", sans-serif;
 }
 
@@ -118,8 +118,8 @@ h4{
     transition: all 0.3s ease;
     z-index: 2;
     text-align: center;
-    border-right: 5px solid #9F0B0B;
-    border-bottom: 5px solid #9F0B0B;
+    border-right: 5px solid blue;
+    border-bottom: 5px solid blue;
 }
 
 .img-container1,

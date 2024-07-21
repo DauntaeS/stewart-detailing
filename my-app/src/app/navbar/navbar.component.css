@@ -8,7 +8,7 @@
   }
 
   .spaced-link:hover {
-    color: #9F0B0B; /* Change the color when hovering over the links */
+    color: blue; /* Change the color when hovering over the links */
   }
 
   .logo-img{
@@ -25,4 +25,9 @@
 
 .square-btn1, .square-btn2{
   border-radius: 0%;
+}
+
+.estimate_link {
+  color: white;
+  text-decoration: none;
 }
